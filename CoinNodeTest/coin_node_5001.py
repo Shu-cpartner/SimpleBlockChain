@@ -23,7 +23,7 @@ class Blockchain:
 
     def create_block(self, proof, previous_hash):
         block = {
-            'index': len(self.chain)+1,
+            'index': len(self.chain) + 1,
             'timestamp': str(datetime.datetime.now()),
             'proof': proof,
             'previous_hash': previous_hash,
@@ -120,7 +120,7 @@ def mine_block():
     previous_proof = previous_block['proof']
     proof = blockchain.proof_of_work(previous_proof)
     previous_hash = blockchain.hash(previous_block)
-    blockchain.add_transaction(sender = node_address, receiver = 'You', amount = 1)
+    blockchain.add_transaction(sender = node_address, receiver = 'Ichiro', amount = 1)
     block = blockchain.create_block(proof, previous_hash)
     response = {
         'message': 'Congratulations, you just mined a block!',
@@ -156,7 +156,7 @@ def is_valid():
 def add_transaction():
     json = request.get_json()
     transaction_keys = ['sender', 'receiver', 'amount']
-    if not all (key in json for key in transaction_keys):
+    if not all(key in json for key in transaction_keys):
         return 'Some elements of the transaction are missing', 400
     index = blockchain.add_transaction(json['sender'], json['receiver'], json['amount'])
     response = {'message': f'This transaction will be added to Block {index}.'}
@@ -199,4 +199,4 @@ def replace_chain():
 
 
 # Running the app
-app.run(host = '0.0.0.0', port = 5003)
+app.run(host = '0.0.0.0', port = 5001)
