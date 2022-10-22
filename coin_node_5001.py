@@ -112,7 +112,7 @@ node_address = str(uuid4()).replace('-', '')
 
 blockchain = Blockchain()
 
-# Mining a new block
+# Mining a new block test
 
 @app.route("/mine_block", methods=['GET'])
 def mine_block():
