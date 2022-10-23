@@ -98,7 +98,7 @@ class Blockchain:
         return False
 
 
-# Mining our Blockchains
+# Mining our Blockchain
 
 # Create a Web App
 
